@@ -1,0 +1,89 @@
+@import "./variables";
+
+#container {
+  padding: 0px 140px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(6, auto);
+    margin-bottom: 100px;
+
+    .left-side {
+      grid-column: 1 / span 5;
+      display: flex;
+      flex-direction: column;
+
+      h1 {
+        margin: 0 0 3rem;
+
+        span {
+          font-family: "Rubik Regular";
+          font-weight: normal;
+          margin-bottom: 0.5rem;
+          display: inline-block;
+        }
+      }
+
+      p {
+        color: $app-light-blue;
+        font-style: italic;
+        font-size: $app-text-small;
+      }
+
+      p.light {
+        color: $app-light-grey;
+      }
+    }
+    .right-side {
+      grid-column: 7 / span end;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  #container {
+    padding: 0px 64px;
+    main {
+      display: flex;
+      flex-direction: column;
+
+      .left-side {
+        margin-bottom: 4rem;
+
+        h1 {
+          margin: 0 0 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #container {
+    padding: 0px 24px;
+    main {
+      .left-side {
+        margin-bottom: 2.5rem;
+
+        h1 {
+          margin: 0 0 1rem;
+
+          span {
+            font-family: "Rubik Light";
+            font-weight: normal;
+          }
+        }
+        p {
+          font-size: $app-text-small-mob;
+          line-height: $app-text-line;
+        }
+      }
+    }
+  }
+}

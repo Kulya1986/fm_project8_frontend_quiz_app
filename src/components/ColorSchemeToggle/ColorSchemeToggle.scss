@@ -1,0 +1,86 @@
+@import "./../../variables";
+
+.color-scheme {
+  display: flex;
+  flex-direction: row;
+}
+
+.color-scheme-light,
+.color-scheme-dark {
+  align-self: center;
+}
+
+.color-scheme-toggle-wrapper {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.color-scheme-toggle-wrapper .switch {
+  display: inline-block;
+  height: 28px;
+  position: relative;
+  width: 48px;
+}
+
+.ccolor-scheme-toggle-wrapper .switch input {
+  display: none;
+}
+
+.color-scheme-toggle-wrapper .slider {
+  background-color: $app-purple;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+  border-radius: 28px;
+}
+
+.color-scheme-toggle-wrapper .slider:before {
+  background-color: $app-white;
+  bottom: 4px;
+  content: "";
+  height: 20px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 20px;
+  border-radius: 28px;
+}
+
+.color-scheme-toggle-wrapper input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.color-scheme-toggle-wrapper .slider.round {
+  border-radius: 28px;
+}
+
+@media only screen and (max-width: 480px) {
+  .color-scheme-toggle-wrapper .switch {
+    height: 20px;
+    width: 32px;
+  }
+  .color-scheme-toggle-wrapper .slider {
+    border-radius: 20px;
+  }
+  .color-scheme-toggle-wrapper .slider:before {
+    height: 12px;
+    border-radius: 20px;
+    width: 12px;
+  }
+
+  .color-scheme-toggle-wrapper input:checked + .slider:before {
+    transform: translateX(12px);
+  }
+  .color-scheme-toggle-wrapper .slider.round {
+    border-radius: 20px;
+  }
+
+  img.color-scheme-light,
+  img.color-scheme-dark {
+    width: 16px;
+    height: 16px;
+  }
+}

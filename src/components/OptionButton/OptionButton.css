@@ -1,0 +1,105 @@
+div.option-button {
+  padding: 18px 20px;
+  border: 3px solid #3b4d66;
+  border-radius: 24px;
+  margin-bottom: 1.5rem;
+  background-color: #3b4d66;
+  box-shadow: 0px 16px 40px rgba(49, 62, 81, 0.14);
+}
+div.option-button div.option-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+div.option-button div.option-logo div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+div.option-button div.option-logo div div {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background-color: #f4f6fa;
+  margin-right: 32px;
+}
+div.option-button div.option-logo div div h3 {
+  margin: 18px;
+  color: #626c7f;
+}
+div.option-button div.option-logo div .selected {
+  background-color: #a729f5;
+}
+div.option-button div.option-logo div .selected h3 {
+  color: #ffffff;
+}
+div.option-button div.option-logo div .picked-correct {
+  background-color: #26d782;
+}
+div.option-button div.option-logo div .picked-correct h3 {
+  color: #ffffff;
+}
+div.option-button div.option-logo div .picked-incorrect {
+  background-color: #ee5454;
+}
+div.option-button div.option-logo div .picked-incorrect h3 {
+  color: #ffffff;
+}
+
+div.option-button:hover {
+  cursor: pointer;
+}
+
+.option-button.light {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0px 16px 40px rgba(143, 160, 193, 0.14);
+}
+
+div.picked-correct,
+.picked-correct.light {
+  border-color: #26d782;
+}
+
+div.picked-incorrect,
+.picked-incorrect.light {
+  border-color: #ee5454;
+}
+
+div.selected,
+.selected.light {
+  border-color: #a729f5;
+}
+
+div.not-selected:hover .option-logo div div,
+.light.not-selected:hover .option-logo div div {
+  background-color: #f6e7ff;
+}
+div.not-selected:hover .option-logo div div h3,
+.light.not-selected:hover .option-logo div div h3 {
+  color: #a729f5;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  div.option-button {
+    padding: 12px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  div.option-button {
+    border-radius: 12px;
+  }
+  div.option-button div.option-logo div div {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+  }
+  div.option-button div.option-logo div div h3 {
+    margin: 14px;
+  }
+  div.option-button div.option-logo img {
+    width: 32px;
+    height: 32px;
+  }
+}/*# sourceMappingURL=OptionButton.css.map */

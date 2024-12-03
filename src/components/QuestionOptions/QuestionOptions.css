@@ -1,0 +1,25 @@
+.err-msg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.err-msg p {
+  font-style: normal;
+  color: #ffffff;
+  margin-left: 8px;
+}
+.err-msg p.light {
+  color: #ee5454;
+}
+
+@media only screen and (max-width: 480px) {
+  .err-msg {
+    margin-top: 12px;
+  }
+  .err-msg img {
+    width: 32px;
+    height: 32px;
+  }
+}/*# sourceMappingURL=QuestionOptions.css.map */
