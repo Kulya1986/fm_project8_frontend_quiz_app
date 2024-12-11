@@ -9,23 +9,38 @@ export default function OptionButton({
   optionColor,
   onButtonClick,
   optionMarker,
+  index,
+  optionSelected,
+  optionButtonRef,
   lightOff = false,
   imageOn = true,
   isSelected,
   pickedCorrect,
   pickedIncorrect,
   correct,
+  activeOnFocus,
+  onKeyDownPress,
 }) {
   const marker = String.fromCharCode(optionMarker);
   const spaceToCopy = window.screen.availWidth <= 480 ? "16px" : "32px";
+  // console.log("button ref", optionButtonRef);
+  // console.log("active on focus", activeOnFocus);
+
   return (
     <div
+      role={"option"}
+      aria-selected={activeOnFocus}
+      id={index}
+      ref={optionButtonRef}
+      tabIndex={activeOnFocus ? 0 : -1}
       className={`option-button ${isSelected ? "selected" : ""} ${
         pickedCorrect ? "picked-correct" : ""
       } ${pickedIncorrect ? "picked-incorrect" : ""} ${
         !isSelected && !pickedCorrect && !pickedIncorrect ? "not-selected" : ""
       } ${lightOff ? "" : "light"}`}
       onClick={() => onButtonClick(optionName)}
+      onKeyDown={(e) => onKeyDownPress(e)}
+      // onFocus={(el) => el.focus({ focusVisible: true })}
     >
       <div className="option-logo">
         <div>

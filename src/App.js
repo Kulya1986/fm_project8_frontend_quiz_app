@@ -144,7 +144,7 @@ export default function App() {
               </>
             )}
         </section>
-        <section className="right-side">
+        <>
           {!activeSection && (
             <StarterMenu
               data={quizData}
@@ -177,7 +177,7 @@ export default function App() {
                 nextQuestion={handleQuestionsProgress}
               />
             )}
-        </section>
+        </>
       </main>
     </div>
   );

@@ -59,6 +59,12 @@ div.option-button:hover {
   cursor: pointer;
 }
 
+div.option-button:focus-visible,
+div.option-button:focus {
+  outline: max(2px, 0.08em) solid currentColor;
+  outline-offset: 3px;
+}
+
 .option-button.light {
   background-color: $app-white;
   border-color: $app-white;
@@ -81,7 +87,9 @@ div.selected,
 }
 
 div.not-selected:hover,
-.light.not-selected:hover {
+.light.not-selected:hover,
+div.not-selected:focus-visible,
+.light.not-selected:focus-visible {
   .option-logo {
     div {
       div {

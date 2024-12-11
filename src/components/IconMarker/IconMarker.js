@@ -8,7 +8,6 @@ export default function IconMarker({
   spaceToCopy = "28px",
 }) {
   const imgSource = `icon-${optionName.toLowerCase()}.svg`;
-  console.log(imgSource);
   const { loading, image } = useImage(imgSource);
 
   if (!loading)

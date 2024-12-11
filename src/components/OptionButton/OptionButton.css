@@ -51,6 +51,12 @@ div.option-button:hover {
   cursor: pointer;
 }
 
+div.option-button:focus-visible,
+div.option-button:focus {
+  outline: max(2px, 0.08em) solid currentColor;
+  outline-offset: 3px;
+}
+
 .option-button.light {
   background-color: #ffffff;
   border-color: #ffffff;
@@ -73,11 +79,15 @@ div.selected,
 }
 
 div.not-selected:hover .option-logo div div,
-.light.not-selected:hover .option-logo div div {
+.light.not-selected:hover .option-logo div div,
+div.not-selected:focus-visible .option-logo div div,
+.light.not-selected:focus-visible .option-logo div div {
   background-color: #f6e7ff;
 }
 div.not-selected:hover .option-logo div div h3,
-.light.not-selected:hover .option-logo div div h3 {
+.light.not-selected:hover .option-logo div div h3,
+div.not-selected:focus-visible .option-logo div div h3,
+.light.not-selected:focus-visible .option-logo div div h3 {
   color: #a729f5;
 }
 
