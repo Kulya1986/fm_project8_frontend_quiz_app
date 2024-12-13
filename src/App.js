@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import TextAreaLeft from "./components/TextAreaLeft/TextAreaLeft";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import QuestionArea from "./components/QuestionArea/QuestionArea";
@@ -19,6 +19,15 @@ export default function App() {
   const [activeSectionData, setActiveSectionData] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [submittedAnswer, setSubmittedAnswer] = useState(null);
+
+  // for keyboard navigation
+
+  const listEl = useRef(null);
+  const [optInFocus, setOptInFocus] = useState("opt0");
+  const optionRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+
+  // for keyboard navigation
 
   function handleActiveSectionSelect(section) {
     setActiveSection(section);
@@ -48,6 +57,7 @@ export default function App() {
     setColorScheme((curr) => !curr);
   }
 
+  // to change the color scheme of the page backgrouond
   useEffect(() => {
     if (colorScheme) {
       if (window.screen.availWidth <= 480) {
@@ -78,6 +88,7 @@ export default function App() {
     }
   }, [colorScheme]);
 
+  // to fetch data for the quiz sections and questions
   useEffect(() => {
     fetch("/data.json")
       .then((res) => res.json())
@@ -85,11 +96,28 @@ export default function App() {
       .catch((error) => console.error("Data fetching error:", error));
   }, []);
 
-  if (!quizData) return <div>Loading quiz data ...</div>;
+  // to implement keyboard navigation throughout the quiz
+  useEffect(function () {
+    function callback(e) {
+      if (!submittedAnswer) {
+        if (document.activeElement === listEl.current) {
+          setOptInFocus(() => "opt0");
+          optionRefs[0].current.focus();
+        } else if (
+          optInFocus &&
+          (e.code === "ArrowUp" || e.code === "ArrowDown")
+        ) {
+          let tmpInd = Number(optInFocus.at(-1));
+          optionRefs[tmpInd].current.focus();
+        }
+      }
+    }
 
-  console.log(quizData);
-  console.log(activeSection);
-  console.log(activeSectionData);
+    document.addEventListener("keyup", callback);
+    return () => document.addEventListener("keyup", callback);
+  });
+
+  if (!quizData) return <div>Loading quiz data ...</div>;
 
   return (
     <div id="container">
@@ -150,18 +178,24 @@ export default function App() {
               data={quizData}
               colorScheme={colorScheme}
               sectionClick={handleActiveSectionSelect}
+              optInFocus={optInFocus}
+              setOptInFocus={setOptInFocus}
+              listEl={listEl}
+              optionRefs={optionRefs}
             />
           )}
           {activeSection &&
             currentQuestion > activeSectionData[0].questions.length && (
-              <Score
-                section={activeSection}
-                sectionColor={activeSectionData[0].color}
-                correctAnswers={correctAnswers}
-                totalQuestions={activeSectionData[0].questions.length}
-                colorScheme={colorScheme}
-                onButtonClick={handlePlayAgain}
-              />
+              <section className="right-side">
+                <Score
+                  section={activeSection}
+                  sectionColor={activeSectionData[0].color}
+                  correctAnswers={correctAnswers}
+                  totalQuestions={activeSectionData[0].questions.length}
+                  colorScheme={colorScheme}
+                  onButtonClick={handlePlayAgain}
+                />
+              </section>
             )}
           {activeSection &&
             currentQuestion <= activeSectionData[0].questions.length && (
@@ -175,6 +209,12 @@ export default function App() {
                 colorScheme={colorScheme}
                 correctAnswersCount={handleCorrectAnswersCount}
                 nextQuestion={handleQuestionsProgress}
+                optInFocus={optInFocus}
+                setOptInFocus={setOptInFocus}
+                listEl={listEl}
+                optionRefs={optionRefs}
+                submittedAnswer={submittedAnswer}
+                setSubmittedAnswer={setSubmittedAnswer}
               />
             )}
         </>

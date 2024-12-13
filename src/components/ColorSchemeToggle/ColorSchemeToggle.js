@@ -18,6 +18,7 @@ export default function ColorSchemeToggle({ colorScheme, onColorToggleClick }) {
           <input
             type="checkbox"
             id="color-scheme-toggle"
+            name="dark-color-scheme-on"
             defaultChecked={colorScheme}
             onClick={onColorToggleClick}
           />

@@ -10,7 +10,6 @@ export default function OptionButton({
   onButtonClick,
   optionMarker,
   index,
-  optionSelected,
   optionButtonRef,
   lightOff = false,
   imageOn = true,
@@ -23,8 +22,6 @@ export default function OptionButton({
 }) {
   const marker = String.fromCharCode(optionMarker);
   const spaceToCopy = window.screen.availWidth <= 480 ? "16px" : "32px";
-  // console.log("button ref", optionButtonRef);
-  // console.log("active on focus", activeOnFocus);
 
   return (
     <div
@@ -40,7 +37,6 @@ export default function OptionButton({
       } ${lightOff ? "" : "light"}`}
       onClick={() => onButtonClick(optionName)}
       onKeyDown={(e) => onKeyDownPress(e)}
-      // onFocus={(el) => el.focus({ focusVisible: true })}
     >
       <div className="option-logo">
         <div>
