@@ -1,6 +1,7 @@
 import React from "react";
 import useImage from "../../useImage";
 import "./IconMarker.css";
+// import { useQuiz } from "../../contexts/QuizContext";
 
 export default function IconMarker({
   optionName,
@@ -13,7 +14,10 @@ export default function IconMarker({
   if (!loading)
     return (
       <div
-        style={{ backgroundColor: optionColor, marginRight: spaceToCopy }}
+        style={{
+          backgroundColor: optionColor,
+          marginRight: spaceToCopy,
+        }}
         className="logo-bg"
       >
         <img

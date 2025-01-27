@@ -1,0 +1,27 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: end;
+  align-items: center;
+  margin: 5.25rem 0rem;
+  width: 100%;
+}
+nav #section-logo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  nav {
+    margin: 40px 0px 50px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  nav {
+    margin: 0px 0px 32px;
+    padding: 16px 0px;
+  }
+}/*# sourceMappingURL=NavigationBar.css.map */

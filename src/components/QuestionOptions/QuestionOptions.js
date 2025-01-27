@@ -1,32 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import OptionButton from "../OptionButton/OptionButton";
 import "./QuestionOptions.css";
 import incorrectIcon from "./../../assets/images/icon-incorrect.svg";
+import { useQuiz } from "../../contexts/QuizContext";
 
 export default function QuestionOptions({
-  options,
-  correctAnswer,
-  correctAnswersCount,
-  nextQuestion,
   colorScheme,
   listEl,
   optInFocus,
   setOptInFocus,
   optionRefs,
-  submittedAnswer,
-  setSubmittedAnswer,
 }) {
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
-  // const [submittedAnswer, setSubmittedAnswer] = useState(null);
-  const [correct, setCorrect] = useState(false);
-  const [errMsg, setErrMsg] = useState(null);
+  const {
+    activeSectionData,
+    currentQuestion,
+    submittedAnswer,
+    selectedAnswer,
+    correct,
+    errorMsgInQuiz,
+    handleSubmitClick,
+    dispatch,
+  } = useQuiz();
 
-  function optionClick(item) {
-    if (!submittedAnswer) {
-      setSelectedAnswer(item);
-      setErrMsg(null);
-    }
-  }
+  const options = activeSectionData[0].questions[currentQuestion - 1].options;
 
   function handleKeyPress(e) {
     if (!submittedAnswer) {
@@ -46,27 +42,14 @@ export default function QuestionOptions({
         }
       }
       if (e.code === "Enter") {
-        optionClick(options[tmpInd]);
+        dispatch({ type: "answer_selected", payload: options[tmpInd] });
       }
     }
   }
 
   function handleSubmit() {
-    if (!selectedAnswer && !submittedAnswer)
-      setErrMsg("Please select an answer");
-    else if (!submittedAnswer) {
-      if (selectedAnswer?.toLowerCase() === correctAnswer?.toLowerCase()) {
-        correctAnswersCount();
-        setCorrect(true);
-      }
-      setSubmittedAnswer(selectedAnswer);
-      setSelectedAnswer(null);
-    } else {
-      nextQuestion();
-      setSubmittedAnswer(null);
-      setCorrect(false);
-      setOptInFocus("opt0");
-    }
+    if (!selectedAnswer && submittedAnswer) setOptInFocus("opt0");
+    handleSubmitClick();
   }
 
   return (
@@ -101,14 +84,18 @@ export default function QuestionOptions({
               : false
           }
           correct={
-            item?.toLowerCase() === correctAnswer?.toLowerCase() &&
-            submittedAnswer
+            item?.toLowerCase() ===
+              activeSectionData[0].questions[
+                currentQuestion - 1
+              ].answer?.toLowerCase() && submittedAnswer
               ? true
               : false
           }
           lightOff={colorScheme}
           key={item}
-          onButtonClick={optionClick}
+          onButtonClick={() =>
+            dispatch({ type: "answer_selected", payload: item })
+          }
           onKeyDownPress={handleKeyPress}
         />
       ))}
@@ -122,10 +109,10 @@ export default function QuestionOptions({
         <div className="button-cta-hover" onClick={handleSubmit}></div>
       </div>
 
-      {errMsg && (
+      {errorMsgInQuiz && (
         <div className="err-msg">
-          <img src={incorrectIcon} alt={`${errMsg}`} />
-          <p className={`${colorScheme ? "" : "light"}`}>{errMsg}</p>
+          <img src={incorrectIcon} alt={`${errorMsgInQuiz}`} />
+          <p className={`${colorScheme ? "" : "light"}`}>{errorMsgInQuiz}</p>
         </div>
       )}
     </section>

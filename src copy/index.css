@@ -1,0 +1,163 @@
+body {
+  margin: 0;
+  font-family: "Rubik Medium", "Rubik Regular", "Rubik Italic", -apple-system, "Courier New", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: top left;
+}
+
+@font-face {
+  font-family: "Rubik Medium";
+  src: url("./assets/fonts/static/Rubik-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Rubik Regular";
+  src: url("./assets/fonts/static/Rubik-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Rubik Italic";
+  src: url("./assets/fonts/static/Rubik-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Rubik Light";
+  src: url("./assets/fonts/static/Rubik-Light.ttf") format("truetype");
+}
+h1 {
+  font-family: "Rubik Medium";
+  font-size: 64px;
+  line-height: 100%;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "Rubik Medium";
+  font-size: 36px;
+  line-height: 100%;
+}
+
+h3 {
+  font-family: "Rubik Medium";
+  font-size: 28px;
+  line-height: 100%;
+  margin: 0;
+}
+
+p {
+  font-family: "Rubik Regular";
+  font-size: 24px;
+  line-height: 150%;
+  margin: 0;
+}
+
+p.display {
+  font-family: "Rubik Medium";
+  font-size: 144px;
+  font-style: normal;
+}
+
+input[type=button] {
+  display: block;
+  cursor: pointer;
+  padding: 32px;
+  border: unset;
+  border-radius: 24px;
+  background-color: #a729f5;
+  box-shadow: 0px 16px 40px rgba(49, 62, 81, 0.14);
+  color: #ffffff;
+  font-size: 28px;
+  line-height: 100%;
+  font-family: "Rubik Medium";
+}
+
+.button-cta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+.button-cta .button-cta-hover {
+  position: absolute;
+  height: 92px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border: unset;
+  border-radius: 24px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 16px 40px rgba(49, 62, 81, 0.14);
+  font-size: 28px;
+  line-height: 100%;
+  opacity: 0;
+}
+
+.button-cta:hover {
+  cursor: pointer;
+}
+.button-cta:hover .button-cta-hover {
+  opacity: 0.5;
+}
+
+.button-cta.light input[type=button],
+.button-cta.light .button-cta-hover {
+  box-shadow: 0px 16px 40px rgba(143, 160, 193, 0.14);
+}
+
+div.logo-bg {
+  width: 56px;
+  height: 56px;
+  align-content: center;
+  text-align: center;
+  border-radius: 8px;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  body {
+    background-size: auto;
+    background-repeat: no-repeat;
+  }
+}
+@media only screen and (max-width: 480px) {
+  body {
+    background-size: cover;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    line-height: 120%;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 18px;
+    line-height: 100%;
+  }
+  p.display {
+    font-size: 88px;
+  }
+  div.logo-bg {
+    width: 40px;
+    height: 40px;
+  }
+  input[type=button] {
+    font-size: 18px;
+    padding: 19px;
+    border-radius: 12px;
+  }
+  .button-cta {
+    margin-bottom: 2px;
+  }
+  .button-cta .button-cta-hover {
+    height: 56px;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+}/*# sourceMappingURL=index.css.map */

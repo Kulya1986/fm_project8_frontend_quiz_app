@@ -1,3 +1,43 @@
+progress {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: calc(100% - 8px);
+  vertical-align: unset;
+  margin: 4px;
+  height: 8px;
+  background-color: #3b4d66;
+  border-radius: 999px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #3b4d66;
+  border-radius: 999px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #a729f5;
+  border-radius: 104px;
+}
+
+progress::-moz-progress-bar {
+  background-color: #a729f5;
+  border-radius: 104px;
+}
+
+#progress-wrapper {
+  border-radius: 999px;
+  width: 100%;
+  height: 16px;
+  background-color: #3b4d66;
+}
+
+progress.light-progress,
+progress.light-progress::-webkit-progress-bar,
+#progress-wrapper.light-progress {
+  background-color: #ffffff;
+}
+
 #question {
   height: 464px;
 }

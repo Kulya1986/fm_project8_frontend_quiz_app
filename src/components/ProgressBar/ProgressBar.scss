@@ -2,6 +2,7 @@
 
 div.progress-bar {
   height: 8px;
+
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   background-color: $app-grey;

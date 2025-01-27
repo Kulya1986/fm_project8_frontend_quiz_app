@@ -1,0 +1,59 @@
+@import "./../../variables";
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 388px;
+  background-color: $app-grey;
+  border-radius: 24px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  box-shadow: 0px 16px 40px rgba(49, 62, 81, 0.14);
+
+  div:first-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  div:last-child {
+    text-align: center;
+    margin-top: 40px;
+    p.display {
+      padding-bottom: 1rem;
+    }
+    .total-questions {
+      color: $app-light-blue;
+    }
+  }
+}
+
+.score.light {
+  background-color: $app-white;
+  box-shadow: 0px 16px 40px rgba(143, 160, 193, 0.14);
+
+  div:last-child {
+    .total-questions {
+      color: $app-light-grey;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .score {
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .score {
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 12px;
+
+    div:last-child {
+      margin-top: 1rem;
+    }
+  }
+}

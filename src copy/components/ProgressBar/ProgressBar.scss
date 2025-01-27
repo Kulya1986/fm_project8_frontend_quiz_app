@@ -1,0 +1,20 @@
+@import "./../../variables.scss";
+
+div.progress-bar {
+  height: 8px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  background-color: $app-grey;
+  padding: 4px;
+  border-radius: 999px;
+
+  .completed {
+    grid-column: 1 / span 4;
+    background-color: $app-purple;
+    border-radius: 104px;
+  }
+}
+
+div.light-progress {
+  background-color: $app-white;
+}

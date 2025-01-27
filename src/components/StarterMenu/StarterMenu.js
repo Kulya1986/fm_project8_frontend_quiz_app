@@ -1,15 +1,16 @@
 import React from "react";
 import OptionButton from "../OptionButton/OptionButton";
+import { useQuiz } from "../../contexts/QuizContext";
 
 export default function StarterMenu({
-  data,
-  sectionClick,
   colorScheme,
   optInFocus,
   setOptInFocus,
   optionRefs,
   listEl,
 }) {
+  const { quizData, handleActiveSectionSelect } = useQuiz();
+
   function handleKeyPress(e) {
     let tmpInd = Number(optInFocus.at(-1));
 
@@ -28,7 +29,7 @@ export default function StarterMenu({
       }
     }
     if (e.code === "Enter") {
-      sectionClick(data[tmpInd].title);
+      handleActiveSectionSelect(quizData[tmpInd].title);
       setOptInFocus("");
     }
   }
@@ -42,7 +43,7 @@ export default function StarterMenu({
       aria-label="List of subjects"
       aria-activedescendant={optInFocus}
     >
-      {data.map((item, i) => (
+      {quizData.map((item, i) => (
         <OptionButton
           optionName={item.title}
           optionColor={item.color}
@@ -50,7 +51,7 @@ export default function StarterMenu({
           optionSelected={0}
           lightOff={colorScheme}
           key={item.title}
-          onButtonClick={sectionClick}
+          onButtonClick={handleActiveSectionSelect}
           onKeyDownPress={handleKeyPress}
           optionButtonRef={optionRefs[i]}
           activeOnFocus={`opt${i}` === optInFocus ? true : false}

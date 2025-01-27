@@ -1,4 +1,39 @@
 @import "./../../variables.scss";
+progress {
+  appearance: none;
+  width: calc(100% - 8px);
+  vertical-align: unset;
+  margin: 4px;
+  height: 8px;
+  background-color: $app-grey;
+  border-radius: 999px;
+}
+progress::-webkit-progress-bar {
+  background-color: $app-grey;
+  border-radius: 999px;
+}
+progress::-webkit-progress-value {
+  background-color: $app-purple;
+  border-radius: 104px;
+}
+progress::-moz-progress-bar {
+  background-color: $app-purple;
+  border-radius: 104px;
+}
+
+#progress-wrapper {
+  border-radius: 999px;
+  width: 100%;
+  height: 16px;
+  background-color: $app-grey;
+}
+
+progress.light-progress,
+progress.light-progress::-webkit-progress-bar,
+#progress-wrapper.light-progress {
+  background-color: $app-white;
+}
+
 #question {
   height: 464px;
   p {

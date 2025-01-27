@@ -2,25 +2,24 @@ import React from "react";
 import "./NavigationBar.css";
 import ColorSchemeToggle from "../ColorSchemeToggle/ColorSchemeToggle";
 import IconMarker from "../IconMarker/IconMarker";
+import { useQuiz } from "../../contexts/QuizContext";
 
-export default function NavigationBar({
-  optionName,
-  optionColor,
-  colorScheme,
-  onColorSchemeChange,
-}) {
-  const justify = optionName && optionColor ? "space-between" : "end";
+export default function NavigationBar({ colorScheme, onColorSchemeChange }) {
+  const { activeSection, activeSectionData } = useQuiz();
+
+  const justify = activeSection ? "space-between" : "end";
   const spaceToCopy = window.screen.availWidth <= 480 ? "16px" : "28px";
+
   return (
     <nav style={{ justifyContent: justify }}>
-      {optionName && optionColor && (
+      {activeSection && (
         <div id="section-logo">
           <IconMarker
-            optionName={optionName}
-            optionColor={optionColor}
+            optionName={activeSection}
+            optionColor={activeSectionData[0].color}
             spaceToCopy={spaceToCopy}
           />
-          <h3>{optionName}</h3>
+          <h3>{activeSection}</h3>
         </div>
       )}
 

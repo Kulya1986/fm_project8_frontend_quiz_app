@@ -1,0 +1,179 @@
+@import "./_variables";
+
+body {
+  margin: 0;
+  font-family: "Rubik Medium", "Rubik Regular", "Rubik Italic", -apple-system,
+    "Courier New", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+
+  background-size: cover;
+  background-position: top left;
+}
+
+@font-face {
+  font-family: "Rubik Medium";
+  src: url("./assets/fonts/static/Rubik-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Rubik Regular";
+  src: url("./assets/fonts/static/Rubik-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Rubik Italic";
+  src: url("./assets/fonts/static/Rubik-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Rubik Light";
+  src: url("./assets/fonts/static/Rubik-Light.ttf") format("truetype");
+}
+
+h1 {
+  font-family: "Rubik Medium";
+  font-size: $app-h1-heading;
+  line-height: $app-heading-line;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "Rubik Medium";
+  font-size: $app-h2-heading;
+  line-height: $app-heading-line;
+}
+
+h3 {
+  font-family: "Rubik Medium";
+  font-size: $app-h3-heading;
+  line-height: $app-heading-line;
+  margin: 0;
+}
+
+p {
+  font-family: "Rubik Regular";
+  font-size: $app-text;
+  line-height: $app-text-line;
+  margin: 0;
+}
+
+p.display {
+  font-family: "Rubik Medium";
+  font-size: $app-display;
+  font-style: normal;
+}
+
+input[type="button"] {
+  display: block;
+  cursor: pointer;
+  padding: 32px;
+  border: unset;
+  border-radius: 24px;
+
+  background-color: $app-purple;
+  box-shadow: 0px 16px 40px rgba(49, 62, 81, 0.14);
+  color: $app-white;
+  font-size: $app-h3-heading;
+  line-height: $app-heading-line;
+  font-family: "Rubik Medium";
+}
+
+.button-cta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+
+  .button-cta-hover {
+    position: absolute;
+    height: 92px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border: unset;
+    border-radius: 24px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 16px 40px rgba(49, 62, 81, 0.14);
+    font-size: $app-h3-heading;
+    line-height: $app-heading-line;
+    opacity: 0;
+  }
+}
+
+.button-cta:hover {
+  cursor: pointer;
+  .button-cta-hover {
+    opacity: 0.5;
+  }
+}
+
+.button-cta.light {
+  input[type="button"],
+  .button-cta-hover {
+    box-shadow: 0px 16px 40px rgba(143, 160, 193, 0.14);
+  }
+}
+
+div.logo-bg {
+  width: 56px;
+  height: 56px;
+  align-content: center;
+  text-align: center;
+  border-radius: 8px;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  body {
+    background-size: auto;
+    background-repeat: no-repeat;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  body {
+    background-size: cover;
+  }
+  h1 {
+    font-size: $app-h1-heading-mob;
+  }
+  h2 {
+    font-size: $app-h2-heading-mob;
+    line-height: $app-h2-heading-line-mob;
+  }
+  h3 {
+    font-size: $app-h3-heading-mob;
+  }
+
+  p {
+    font-size: $app-text-mob;
+    line-height: $app-heading-line;
+  }
+
+  p.display {
+    font-size: $app-display-mob;
+  }
+
+  div.logo-bg {
+    width: 40px;
+    height: 40px;
+  }
+  input[type="button"] {
+    font-size: $app-h3-heading-mob;
+    padding: 19px;
+    border-radius: 12px;
+  }
+  .button-cta {
+    margin-bottom: 2px;
+    .button-cta-hover {
+      height: 56px;
+      border-radius: 12px;
+      font-size: $app-h3-heading-mob;
+    }
+  }
+}
