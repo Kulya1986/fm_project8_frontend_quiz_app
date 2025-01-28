@@ -7,8 +7,6 @@ body {
   font-weight: normal;
   letter-spacing: 1px;
   box-sizing: border-box;
-  background-size: cover;
-  background-position: top left;
 }
 
 @font-face {
@@ -116,16 +114,7 @@ div.logo-bg {
   border-radius: 8px;
 }
 
-@media only screen and (max-width: 768px) and (orientation: portrait) {
-  body {
-    background-size: auto;
-    background-repeat: no-repeat;
-  }
-}
 @media only screen and (max-width: 480px) {
-  body {
-    background-size: cover;
-  }
   h1 {
     font-size: 40px;
   }

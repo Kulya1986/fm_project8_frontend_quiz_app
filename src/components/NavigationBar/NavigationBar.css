@@ -4,8 +4,7 @@ nav {
   flex-wrap: nowrap;
   justify-content: end;
   align-items: center;
-  margin: 5.25rem 0rem;
-  width: 100%;
+  margin: 5.25rem 8.75rem;
 }
 nav #section-logo {
   display: flex;
@@ -16,12 +15,12 @@ nav #section-logo {
 
 @media only screen and (max-width: 768px) and (orientation: portrait) {
   nav {
-    margin: 40px 0px 50px;
+    margin: 40px 64px 50px;
   }
 }
 @media only screen and (max-width: 480px) {
   nav {
-    margin: 0px 0px 32px;
+    margin: 0px 24px 32px;
     padding: 16px 0px;
   }
 }/*# sourceMappingURL=NavigationBar.css.map */

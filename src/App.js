@@ -35,37 +35,6 @@ export default function App() {
     setColorScheme((curr) => !curr);
   }
 
-  // to change the color scheme of the page backgrouond
-  useEffect(() => {
-    if (colorScheme) {
-      if (window.screen.availWidth <= 480) {
-        document.body.style.backgroundImage =
-          'url("/images/pattern-background-mobile-dark.svg")';
-      } else if (window.screen.availWidth <= 768) {
-        document.body.style.backgroundImage =
-          'url("/images/pattern-background-tablet-dark.svg")';
-      } else {
-        document.body.style.backgroundImage =
-          'url("/images/pattern-background-desktop-dark.svg")';
-      }
-      document.body.style.backgroundColor = "#313e51";
-      document.body.style.color = "#ffffff";
-    } else {
-      if (window.screen.availWidth <= 480) {
-        document.body.style.backgroundImage =
-          'url("/images/pattern-background-mobile-light.svg")';
-      } else if (window.screen.availWidth <= 768) {
-        document.body.style.backgroundImage =
-          'url("/images/pattern-background-tablet-light.svg")';
-      } else {
-        document.body.style.backgroundImage =
-          'url("/images/pattern-background-desktop-light.svg")';
-      }
-      document.body.style.backgroundColor = "#f4f6fa";
-      document.body.style.color = "#313E51";
-    }
-  }, [colorScheme]);
-
   // to implement keyboard navigation throughout the quiz
   useEffect(function () {
     function callback(e) {
@@ -90,7 +59,7 @@ export default function App() {
   if (!quizData) return <div>Loading quiz data ...</div>;
 
   return (
-    <div id="container">
+    <div id="container" className={`${colorScheme ? "dark" : "light"}`}>
       <NavigationBar
         colorScheme={colorScheme}
         onColorSchemeChange={handleColorSchemeChange}
