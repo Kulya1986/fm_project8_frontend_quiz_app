@@ -6,13 +6,12 @@
   flex-wrap: nowrap;
   background-size: cover;
   background-position: top left;
-  height: 100vh;
 
   main {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(6, auto);
-    margin: 0px 140px 100px;
+    padding: 0px 140px 100px;
 
     .left-side {
       grid-column: 1 / span 5;
@@ -44,6 +43,7 @@
       grid-column: 7 / span end;
       display: flex;
       flex-direction: column;
+      gap: 1rem;
     }
     .right-side:focus {
       outline: none;
@@ -62,16 +62,16 @@
   color: $app-navy;
 }
 
-@media only screen and (max-width: 768px) and (orientation: portrait) {
+@media only screen and (max-width: 768px) {
   #container {
-    background-size: auto;
+    // background-size: cover;
     background-repeat: no-repeat;
     main {
       display: flex;
       flex-direction: column;
 
-      margin-left: 64px;
-      margin-right: 64px;
+      padding-left: 64px;
+      padding-right: 64px;
       .left-side {
         margin-bottom: 4rem;
 
@@ -91,10 +91,9 @@
 
 @media only screen and (max-width: 480px) {
   #container {
-    background-size: cover;
     main {
-      margin-left: 24px;
-      margin-right: 24px;
+      padding-left: 24px;
+      padding-right: 24px;
       .left-side {
         margin-bottom: 2.5rem;
 

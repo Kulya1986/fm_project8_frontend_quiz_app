@@ -4,13 +4,12 @@
   flex-wrap: nowrap;
   background-size: cover;
   background-position: top left;
-  height: 100vh;
 }
 #container main {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(6, auto);
-  margin: 0px 140px 100px;
+  padding: 0px 140px 100px;
 }
 #container main .left-side {
   grid-column: 1/span 5;
@@ -38,6 +37,7 @@
   grid-column: 7/span end;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
 #container main .right-side:focus {
   outline: none;
@@ -55,16 +55,15 @@
   color: #313e51;
 }
 
-@media only screen and (max-width: 768px) and (orientation: portrait) {
+@media only screen and (max-width: 768px) {
   #container {
-    background-size: auto;
     background-repeat: no-repeat;
   }
   #container main {
     display: flex;
     flex-direction: column;
-    margin-left: 64px;
-    margin-right: 64px;
+    padding-left: 64px;
+    padding-right: 64px;
   }
   #container main .left-side {
     margin-bottom: 4rem;
@@ -80,12 +79,9 @@
   }
 }
 @media only screen and (max-width: 480px) {
-  #container {
-    background-size: cover;
-  }
   #container main {
-    margin-left: 24px;
-    margin-right: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
   #container main .left-side {
     margin-bottom: 2.5rem;

@@ -2,7 +2,6 @@ div.option-button {
   padding: 18px 20px;
   border: 3px solid #3b4d66;
   border-radius: 24px;
-  margin-bottom: 1.5rem;
   background-color: #3b4d66;
   box-shadow: 0px 16px 40px rgba(49, 62, 81, 0.14);
 }
@@ -91,7 +90,7 @@ div.not-selected:focus-visible .option-logo div div h3,
   color: #a729f5;
 }
 
-@media only screen and (max-width: 768px) and (orientation: portrait) {
+@media only screen and (max-width: 768px) {
   div.option-button {
     padding: 12px;
   }
